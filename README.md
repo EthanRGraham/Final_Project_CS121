@@ -1,7 +1,13 @@
-# Final_Project_CS121
-
 ```mermaid
 classDiagram
+    Main o-- Search
+    class Main{
+        loadClothing()
+        showInventory()
+        report()
+        HasMenu()
+    }
+    Clothing o-- Main
     Clothing o-- Type
     class Clothing{
         Clothing : -String name
@@ -20,6 +26,32 @@ classDiagram
         Type()
         readCSVfile()
     }
+    class Search{
+        HasMenu()
+        getClothingType()
+        getClothingSize()
+        getClothingColor()
+        SearchbyType()
+
+    }
+    POS o-- Search
+    Clothing o-- POS
+    class POS {
+        HasMenu()
+        loadClothing()
+        UpdateInventory()
+        additem() to shoppingCart
+        sellItem()
+
+    }
+shoppingCart o-- POS
+class shoppingCart{
+    int numItems
+    int cart_total
+    purchase()
+    removeItem()
+
+}
 
 
 
