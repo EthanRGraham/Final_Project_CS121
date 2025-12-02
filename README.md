@@ -73,7 +73,7 @@ classDiagram
         getColor() String
         ConverttoString()
     }
-    Inventory  o|-- Clothing
+    Inventory  o-- Clothing
     class Inventory{
         - items: ArrayList<Clothing>  
         - csvfilePath
