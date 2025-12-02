@@ -1,3 +1,8 @@
+# Clothing and Type class 
+    load Inventory from CSV file
+    For each line in CSV:
+        Parse name, type, size, color, stock, price, production cost
+        
 # public interface HasMenu 
     String Menu();
     void start();
@@ -43,20 +48,44 @@ classDiagram
     Clothing o-- Type
     class Clothing{
         Clothing : -String name
-        Clothing : -int price
+        Clothing : -double price
         Clothing : -int stock
-        Clothing : -int productionCost
+        Clothing : -double productionCost
+        Clothing : -int totalSold 
+        Clothing : -type: Type
     
-        Clothing()
-        getType()
-        readCSVfile()
+        + getName(): String
+        + getPrice(): double
+        + getType(): Type
+        + getStock(): int
+        + updateStock(int amount)
+        + addSale(int)
+        + ConverttoString()
+        + fullDetailedString()
     }
     class Type{
-        -String color
-        -String clothingType
-        -String clothingSize
-        Type()
-        readCSVfile()
+        - String clothingColor
+        - String clothingType
+        - String clothingSize
+        - 
+        getClothingType() String
+        getSize() String
+        getColor() String
+        ConverttoString()
+    }
+    class Inventory{
+       Inventory  o|-- Clothing
+        - items: ArrayList<Clothing>  
+        - csvfilePath
+
+        + Inventory(csvFilePath: String)
+        + loadCSV()
+        + saveInventory()
+        + getItems() Arrayliss<Clothing>
+        + searchBySize(size: String): ArrayList<Clothing>
+        + searchByColor(color: String): ArrayList<Clothing>
+        + searchByType(typeText: String): ArrayList<Clothing>
+        + sortByStock(): ArrayList<Clothing>
     }
     class Search{
         HasMenu()
