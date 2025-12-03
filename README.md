@@ -101,7 +101,7 @@ classDiagram
         + sellItem(item: Clothing, qty: int)
         + checkout()        
     }
-shoppingCart o-- POS
+ShoppingCart o-- POS
 class ShoppingCart{
     - items: Arraylist<Clothing>
     - quantities: Arraylist<Integer>
