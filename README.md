@@ -1,38 +1,39 @@
-# Clothing and Type class 
-    load Inventory from CSV file
-    For each line in CSV:
-        Parse name, type, size, color, stock, price, production cost
-        
-# public interface HasMenu 
-    String Menu();
-    void start();
 
-# Main
-if user input = 0 
-else if input = 1
-              = 2
-else: try again! 0- #
-## loadClothing()
-    pull from csv file
-    use this example:
-    https://github.com/twopiharris/BSU-CS121/blob/main/java_data/%23ReadFile.java%23
+# Main.cpp
+    inventory = new Inventory("inventory.csv")
+    pos = new POS(inventory)
+    pos.Menu()
 
-## int Menu()
-    ---------------------
-    0) Inventory
-    1) Report
-    2) Start POS System
-    ---------------------
-    return int input
+# Class Type
+    private clothingType
+    private size
+    private color
+
+    Contructor Type(typeText, sizeText, colorText)
+        clothingType = typeText
+        size = sizeText
+        color = colorText
+
+    getClothingType()
+        return clothingType
     
-## showInventory()
-    simply print out inventory
-    for number of lines in csv file
-    System.out.println()
+    getSize()
+        return size
 
-## report()
-    take each item's amount sold variable
-    print the name, amount sold, and amount sold x item price.
+    getColor()
+        return color
+
+    convertToString()
+        return clothingType + "/" + size + "/" + color "/"
+
+#Clothing class
+
+    PRIVATE name
+    PRIVATE price
+    PRIVATE stock
+    PRIVATE productionCost
+    PRIVATE totalSold
+    PRIVATE type 
     
     
 ```mermaid
