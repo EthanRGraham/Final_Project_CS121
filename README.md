@@ -26,7 +26,7 @@
     convertToString()
         return clothingType + "/" + size + "/" + color "/"
 
-#Clothing class
+# Clothing class
 
     PRIVATE name
     PRIVATE price
@@ -66,7 +66,7 @@
                "\nProduction Cost: " + productionCost +
                "\nTotal Sold: " + totalSold
 
-#Class Inventory
+# Class Inventory
     Private items ArrayList of clothing
     Private filePath
 
@@ -154,7 +154,7 @@
         CLEAR items
         CLEAR quantities
 
-#Class POS
+# Class POS
      PRIVATE inventory     Inventory object
     PRIVATE cart           ShoppingCart object
     PRIVATE search         Search object
