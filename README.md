@@ -39,10 +39,6 @@ else: try again! 0- #
 classDiagram
     Main o-- Search
     class Main{
-        loadClothing()
-        showInventory()
-        report()
-        HasMenu()
     }
     Clothing o-- Main
     Clothing o-- Type
@@ -81,37 +77,41 @@ classDiagram
         + Inventory(csvFilePath: String)
         + loadCSV()
         + saveInventory()
-        + getItems() Arrayliss<Clothing>
+        + getItems() Arraylist<Clothing>
+    }
+    class Search{
+      - inventory: Inventory 
+    
+        + Search(inventory: Inventory )       
         + searchBySize(size: String): ArrayList<Clothing>
         + searchByColor(color: String): ArrayList<Clothing>
         + searchByType(typeText: String): ArrayList<Clothing>
         + sortByStock(): ArrayList<Clothing>
-    }
-    class Search{
-        HasMenu()
-        getClothingType()
-        getClothingSize()
-        getClothingColor()
-        SearchbyType()
+
 
     }
     POS o-- Search
     Clothing o-- POS
     class POS {
-        HasMenu()
-        loadClothing()
-        UpdateInventory()
-        additem() to shoppingCart
-        sellItem()
+        - inventory: Inventory
+        - cart: ShoppingCart
 
+        HasMenu()
+        + POS(inventory: Inventory)
+        + sellItem(item: Clothing, qty: int)
+        + checkout()        
     }
 shoppingCart o-- POS
-class shoppingCart{
-    int numItems
-    int cart_total
-    purchase()
-    removeItem()
+class ShoppingCart{
+    - items: Arraylist<Clothing>
+    - quantities: Arraylist<Integer>
 
+    + addItem(item: Clothing, qty: int)
+    + removeItem(item: Clothing)
+    + getTotal() double
+    + showCart()
+    + clearCart()
+    
 }
 
 
