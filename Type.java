@@ -21,7 +21,7 @@ public class Type {
         return color;
     }
 
-    public String toString() {
+    public String convertToString() {
         return clothingType + " / " + size + " / " + color;
     }
 }
