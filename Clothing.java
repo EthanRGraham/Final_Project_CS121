@@ -44,7 +44,7 @@ public class Clothing {
         stock -= qty;
     }
 
-    public String convertToString() {
+    public String toString() {
         return name + " | " + type.toString() + " | Stock: " + stock;
     }
 
