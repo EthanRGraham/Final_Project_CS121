@@ -39,25 +39,31 @@ public class POS {
     }
 
     private void searchMenu() {
-        System.out.println("Search by: size, type, color");
+        System.out.println("Search By Which Category?: name, size, type, color");
         String mode = scanner.nextLine();
 
         System.out.print("Enter search keyword: ");
         String keyword = scanner.nextLine();
 
         ArrayList<Clothing> results = new ArrayList<>();
+	if (mode.equalsIgnoreCase("size")) {
+		results = search.searchBySize(keyword);
+   	 } else if (mode.equalsIgnoreCase("type")) {
+        	results = search.searchByType(keyword);
+    	} else if (mode.equalsIgnoreCase("color")) {
+        	results = search.searchByColor(keyword);
+    	} else if (mode.equalsIgnoreCase("name")) {
+        	results = search.searchByName(keyword);
+    	} else {
+        	System.out.println("Invalid search category.");
+		return;
+    }
 
-        if (mode.equalsIgnoreCase("size"))
-            results = search.searchBySize(keyword);
-        else if (mode.equalsIgnoreCase("type"))
-            results = search.searchByType(keyword);
-        else if (mode.equalsIgnoreCase("color"))
-            results = search.searchByColor(keyword);
-
-        if (results.isEmpty()) {
-            System.out.println("No items found.");
-            return;
-        }
+    // Check if results found
+    if (results.isEmpty()) {
+        System.out.println("No items found.");
+        return;
+    }
 
         System.out.println("--- Results ---");
         for (int i = 0; i < results.size(); i++) {

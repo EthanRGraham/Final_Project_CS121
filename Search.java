@@ -39,13 +39,22 @@ public class Search {
         }
         return results;
     }
+    public ArrayList<Clothing> searchByName(String name) {
+	ArrayList<Clothing> results = new ArrayList<>();
+
+	for(Clothing item : inventory.getItems()) {
+		if (item.getName().equalsIgnoreCase(name)) {
+			results.add(item);
+		}
+    	}
+	return results;
+    }//end searchByName
+   
     public void showAllItems() {
     	System.out.println("\n----- Full Inventory -----");
     	for (Clothing c : inventory.getItems()) {
         	System.out.println(c.toString());
 	}
 	System.out.println("--------------------------\n");
-}
-
-}
-
+    }
+} //
