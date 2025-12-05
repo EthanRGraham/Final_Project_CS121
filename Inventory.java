@@ -24,10 +24,10 @@ public class Inventory {
                 String color = parts[3];
                 int stock = Integer.parseInt(parts[4]);
                 double price = Double.parseDouble(parts[5]);
-                double cost = Double.parseDouble(parts[6]);
+                int amountSold = Integer.parseInt(parts[6]);
 
                 Type typeObj = new Type(type, size, color);
-                Clothing clothing = new Clothing(name, price, stock, cost, typeObj);
+                Clothing clothing = new Clothing(name, price, stock, amountSold, typeObj);
 
                 items.add(clothing);
             }
@@ -38,7 +38,7 @@ public class Inventory {
 
     public void saveInventory() {
         try (PrintWriter pw = new PrintWriter(new FileWriter(filePath))) {
-            pw.println("name,type,size,color,stock,price,productionCost");
+            pw.println("name,type,size,color,stock,price,amountSold");
 
             for (Clothing c : items) {
                 pw.println(
@@ -48,7 +48,7 @@ public class Inventory {
                     c.getType().getColor() + "," +
                     c.getStock() + "," +
                     c.getPrice() + "," +
-                    c.getTotalSold()
+                    c.getamountSold()
                 );
             }
         } catch (Exception e) {

@@ -39,5 +39,13 @@ public class Search {
         }
         return results;
     }
+    public void showAllItems() {
+    	System.out.println("\n----- Full Inventory -----");
+    	for (Clothing c : inventory.getItems()) {
+        	System.out.println(c.toString());
+	}
+	System.out.println("--------------------------\n");
+}
+
 }
 

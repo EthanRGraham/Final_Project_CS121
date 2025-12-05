@@ -2,17 +2,15 @@ public class Clothing {
     private String name;
     private double price;
     private int stock;
-    private double productionCost;
-    private int totalSold;
+    private int amountSold;
     private Type type;
 
-    public Clothing(String name, double price, int stock, double productionCost, Type type) {
+    public Clothing(String name, double price, int stock, int amountSold, Type type) {
         this.name = name;
         this.price = price;
         this.stock = stock;
-        this.productionCost = productionCost;
         this.type = type;
-        this.totalSold = 0;
+        this.amountSold = amountSold;
     }
 
     public String getName() {
@@ -31,8 +29,8 @@ public class Clothing {
         return type;
     }
 
-    public int getTotalSold() {
-        return totalSold;
+    public int getamountSold() {
+        return amountSold;
     }
 
     public void updateStock(int amount) {
@@ -40,7 +38,7 @@ public class Clothing {
     }
 
     public void addSale(int qty) {
-        totalSold += qty;
+        amountSold += qty;
         stock -= qty;
     }
 
@@ -54,8 +52,7 @@ public class Clothing {
             "Type: " + type.toString() + "\n" +
             "Price: $" + price + "\n" +
             "Stock: " + stock + "\n" +
-            "Production Cost: $" + productionCost + "\n" +
-            "Total Sold: " + totalSold;
+            "Total Sold: " + amountSold;
     }
 }
 

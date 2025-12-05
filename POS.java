@@ -15,7 +15,8 @@ public class POS {
     }
 
     public void showMenu() {
-        while (true) {
+       search.showAllItems(); /* shows all items before search happens*/
+       while (true) {
             System.out.println("\n--- POS Menu ---");
             System.out.println("1. Search Items");
             System.out.println("2. View Cart");
